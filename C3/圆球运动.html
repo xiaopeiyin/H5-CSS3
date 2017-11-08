@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background: deepskyblue;
+			position: absolute;
+			left: 200px;
+			top: 600px;
+		}
+		
+		#box1{
+			
+			animation: move 5s ease 0s infinite alternate;
+
+			 
+			
+		}
+		
+		@-webkit-keyframes move{
+				from{
+					left:200px;
+				}
+				to{
+					left:600px;
+				}
+			}
+	</style>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+		<div id="box4"></div>
+		<div id="box5"></div>
+		
+		<script>
+		
+		
+		
+//			
+////			var oBox1 = document.getElementById("box1");
+//			var oBox2 = document.getElementById("box2");
+//			var oBox3 = document.getElementById("box3");
+//			var oBox4 = document.getElementById("box4");
+//			var oBox5 = document.getElementById("box5");
+//			
+//	//		circle(oBox1,100,1);
+//			circle(oBox2,500,204);
+//			circle(oBox3,500,32);
+//			circle(oBox4,500,-64);
+//			circle(oBox5,500,-128);
+//			
+////			var r = 300;
+////			var d = 0;
+////			
+////			setInterval(function(){
+////				
+////				var x = r*Math.cos(transl(d));
+////				var y = r*Math.sin(transl(d));
+////				
+////				oBox.style.left = x + 500 +"px";
+////				oBox.style.top = y + 300 +"px";
+////				
+////				d += 10;
+////			},100)
+//			
+//			function transl(deg){
+//				
+//				return deg*Math.PI/180;
+//			}
+//			
+//			
+//			function circle(obj,r,d){
+//								
+//				setInterval(function(){
+//				
+//					var x = r*Math.cos(transl(d));
+//					var y = r*Math.sin(transl(d));
+//					
+//					obj.style.left = x + 800 +"px";
+//					obj.style.top = y + 600 +"px";
+//					
+//					d += 10;
+//				},100)
+//			}
+//			
+
+
+		@-webkit-keyframes move{
+			from{
+				left:200px;
+			}
+			to{
+				left:600px;
+			}
+		}
+			
+		</script>
+	</body>
+</html>
