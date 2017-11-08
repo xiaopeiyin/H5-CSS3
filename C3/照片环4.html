@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background: black;
+				color: #ccc;
+				cursor: pointer;
+			}
+			.stage{
+				width: 800px;
+				height: 400px;
+				margin: 0 auto;
+				perspective: 900px;
+				border: 1px solid #000;
+			}
+			.stage .unit{
+				width: 800px;
+				height: 400px;
+				position: relative;
+				transform-style: preserve-3d;
+				transition: all 0.5s ease 0s;
+			}
+			.stage .unit ul{
+				list-style: none;
+			}
+			.stage .unit ul li{
+				position: absolute;
+				left: 300px;
+				top: 135px;
+			}
+			.unit:hover{
+				transform: rotateY(720deg);
+			}
+		</style>
+	</head>
+	<body>
+		<h1>请滚动滚轮</h1>
+		<div class="stage">
+			<div class="unit">
+				<ul>
+					<li><img src="img/1.png"/></li>
+					<li><img src="img/2.png"/></li>
+					<li><img src="img/3.png"/></li>
+					<li><img src="img/4.png"/></li>
+					<li><img src="img/5.png"/></li>
+					<li><img src="img/6.png"/></li>
+					<li><img src="img/7.png"/></li>
+					<li><img src="img/8.png"/></li>
+					<li><img src="img/9.png"/></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script>
+			$("li").each(function(i){
+				
+				$(this).css({
+					"transform":"rotateY("+ 40*i +"deg) translateZ(400px)"
+				})
+			})
+		</script>
+	</body>
+</html>

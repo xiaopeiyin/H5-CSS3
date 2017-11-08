@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 50px;
+				margin: 10px;
+				border: 1px solid gray;
+			}
+			div[title|=gh]{
+				background: red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div title="abc"></div>
+		<div title="bcd"></div>
+		<div title="cef de"></div>
+		<div title="gh-k"></div>
+		<div title="ghk"></div>
+		<div class="abc"></div>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#shade{
+				width: 258px;
+				height: 258px;
+				border: 1px solid gray;
+				margin: 300px;
+				perspective: 1500px;
+			}
+			#unit{
+				width: 258px;
+				height: 258px;
+				position: relative;
+				transform-style: preserve-3d;
+				transition: all 5s;
+				/*transform: rotateY(-45deg);*/
+			}
+			#unit img{
+				position: absolute;
+				left: 0;
+				top: 0;
+				border-radius: 50%;
+			}
+			#unit img:nth-child(2){
+				transform: rotateX(90deg) translateY(-129px) translateZ(129px);
+			}
+			#unit img:nth-child(3){
+				transform: rotateX(90deg) translateY(-129px) translateZ(-129px);
+			}
+			#unit img:nth-child(4){
+				transform: translateZ(-258px);
+			}
+			#unit img:nth-child(5){
+				transform: rotateY(90deg) translateZ(-129px) translateX(129px);
+			}
+			#unit img:nth-child(6){
+				transform: rotateY(90deg) translateZ(129px) translateX(129px);
+			}
+			#shade:hover #unit{
+				transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+			}
+			/*#unit img:nth-child(2){
+				transform: rotateX(90deg) translateZ(129px);
+			}
+			#unit img:nth-child(3){
+				transform: rotateX(90deg) translateZ(-129px);
+			}
+			#unit img:nth-child(4){
+				transform: rotateY(90deg) translateZ(129px);
+			}
+			#unit img:nth-child(5){
+				transform: rotateY(90deg) translateZ(-129px);
+			}
+			#unit img:nth-child(6){
+				transform: translateZ(-129px);
+			}
+			#unit img:nth-child(1){
+				transform: translateZ(129px);
+			}*/
+			#shade:hover #unit{
+				transform: rotateX(720deg) rotateY(720deg) rotateZ(720deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="shade">
+			<div id="unit">
+				<img src="img/baby.png"/>
+				<img src="img/xiaoming.png"/>
+				<img src="img/baby.png"/>
+				<img src="img/xiaoming.png"/>
+				<img src="img/baby.png"/>
+				<img src="img/xiaoming.png"/>
+			</div>
+		</div>
+	</body>
+</html>

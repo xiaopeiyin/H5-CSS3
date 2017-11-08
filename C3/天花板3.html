@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.stage{
+				width:258px;height:258px;
+				border: 1px solid red;
+				margin: 200px;
+				perspective: 1500px;
+			}
+			.stage .unit{
+				width:258px;height:258px;
+				transition: all 2s ease 0s;
+				transform-style: preserve-3d;
+				transform: rotateY(45deg);
+				position: relative;
+			}
+			.stage .unit img{
+				position: absolute;
+				left:0;
+				top:0;
+			}
+			.stage .unit img:nth-child(2){
+				transform: translateZ(129px);
+			}
+			.stage .unit img:nth-child(1){
+				transform: rotateX(90deg) translateZ(129px) ;
+			}
+			.stage .unit img:nth-child(3){
+				transform: rotateY(-90deg) translateZ(129px) ;
+			}
+			.stage .unit img:nth-child(4){
+				transform: rotateY(-90deg) translateZ(-129px) ;
+			}
+			.stage .unit img:nth-child(5){
+				transform: translateZ(-129px);
+			}
+			.stage .unit img:nth-child(6){
+				transform: rotateX(90deg) translateZ(-129px) ;
+			}
+			.stage .unit:hover{
+				transform: rotateY(-180deg) rotateX(180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="stage">
+			<div class="unit">
+				<img src="img/baby.png" alt="" class="bady"/>
+				<img src="img/xiaoming.png" class="xiaoming"/>
+				<img src="img/baby.png" alt="" class="bady"/>
+				<img src="img/xiaoming.png" class="xiaoming"/>
+				<img src="img/baby.png" alt="" class="bady"/>
+				<img src="img/xiaoming.png" class="xiaoming"/>
+				
+			</div>
+		</div>
+	</body>
+</html>

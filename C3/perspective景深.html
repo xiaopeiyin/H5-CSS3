@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 258px;
+				height: 258px;
+				border: 1px solid gray;
+				perspective: 500px;
+				position: relative;
+			}
+			div img{
+				position: absolute;
+				left: 0;
+				top: 0;
+				
+				backface-visibility: hidden;
+				
+				transition: all 5s ease 0s;
+			}
+			div img:nth-child(1){
+				transform: rotateY(0deg);
+			}
+			div img:nth-child(2){
+				transform: rotateY(180deg);
+			}
+			div:hover img:nth-child(1){
+				
+				transform: rotateY(180deg);
+			}
+			div:hover img:nth-child(2){
+				
+				transform: rotateY(360deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="img/baby.png"/>
+			<img src="img/xiaoming.png"/>
+		</div>
+	</body>
+</html>

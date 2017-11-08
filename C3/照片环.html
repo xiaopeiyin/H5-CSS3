@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: gray;
+			}
+			#shade{
+				width: 800px;
+				height: 400px;
+				perspective: 900px;
+				margin: 50px auto;
+				/*border: 1px solid red;*/
+			}
+			#unit{
+				width: 800px;
+				height: 400px;
+				transform-style: preserve-3d;
+				transition: all 5s;
+				position: relative;
+				
+			}
+			
+			#unit ul li{
+				list-style: none;
+				position: absolute;
+				left: 300px;
+				top: 200px;
+			}
+			/*#unit:hover{
+				transform: rotateY(720deg);
+			}*/
+		</style>
+	</head>
+	<body>
+		<div id="shade">
+			<div id="unit">
+				<ul>
+					<li><img src="img/1.png"/></li>
+					<li><img src="img/2.png"/></li>
+					<li><img src="img/3.png"/></li>
+					<li><img src="img/4.png"/></li>
+					<li><img src="img/5.png"/></li>
+					<li><img src="img/6.png"/></li>
+					<li><img src="img/7.png"/></li>
+					<li><img src="img/8.png"/></li>
+					<li><img src="img/9.png"/></li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="js/jquery-3.2.1.js"></script>
+		<script>
+			$("li").each(function(i){
+				
+				$(this).css({
+					"transform":"rotateY("+ 40*i +"deg) translateZ(400px)",
+				})
+			})
+			$(document).mousedown(function(e){
+				
+				var w1 = e.clientX;
+			
+				
+				$(document).mouseup(function(e){
+					
+					var w2 = e.clientX
+					
+					console.log(w1,w2)
+					
+					
+				})
+			})
+		</script>
+	</body>
+</html>
