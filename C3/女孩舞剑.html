@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 190px;
+				height: 190px;
+				background: url(img/jian.png) no-repeat;
+				background-position: 0 0;
+				position: absolute;
+				top:500px
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		
+		<script>
+			
+			function fly(){
+				
+				var oBox = document.getElementById("box")
+				var oLeft = oBox.offsetLeft;
+				var oTop = oBox.offsetTop;
+				var i = 0;
+				var speed = 10;
+				var timer = setInterval(function(){
+					
+					
+					var x = i%5;
+					var y = parseInt(i/5);
+					
+			//		console.log(x,y)
+					oBox.style.left = oLeft + 'px';
+					oBox.style.top = oTop + 'px';
+					oBox.style.backgroundPosition = -x*190 +'px'+ " " + -y*190 +'px'
+					
+			//		console.log(oTop)
+					oLeft += 10;
+					oTop -= speed;
+					i++;
+					console.log(i)
+					if(i > 50){
+						clearInterval(timer)
+					}
+					if(oTop == 0|| oTop ==500){
+						speed = -speed;
+						console.log(speed)
+					}
+					if(oLeft > 2000){
+						clearInterval(timer);
+						
+					}
+					
+				},1000)
+			}
+			
+			fly();
+		</script>
+	</body>
+</html>

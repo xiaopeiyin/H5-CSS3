@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			/*.box>input{
+				width: ;
+			}*/
+			input.current{
+				background: red;
+			}
+			input{
+				margin-right: 10px;
+			}
+			.box{
+				float: left;
+				margin: 20px;
+			}
+			.box div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				display: none;
+			}
+			div.current{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div class="box">
+			<input type="button" class="current" value="汽车1" />
+			<input type="button" value="汽车2" />
+			<input type="button" value="汽车3" />
+			
+			<div style="display: block;">汽车1汽车1汽车1</div>
+			<div>汽车2汽车2汽车2</div>
+			<div>汽车3汽车3汽车3</div>
+		</div>-->
+		
+		
+		<script>
+		
+		window.onload = function(){
+			
+		
+			
+			function Tab(){
+				
+//				this.oBox = document.getElementsByClassName('box')[0];
+//				this.aInput = this.oBox.getElementsByTagName('input');
+//				this.aDiv = this.oBox.getElementsByTagName('div');
+
+				this.oBox = document.createElement("div");
+				this.oBox.className = "box"
+				
+				for(var i=0; i<3 ;i++){
+					
+					var aInput = document.createElement("input");
+					aInput.type = "button";
+					aInput.value = "汽车"+(i+1);
+					this.oBox.appendChild(aInput);
+				}
+				for(var i=0; i<3 ;i++){
+					
+					var aDiv = document.createElement("div");
+					aDiv.innerHTML = "汽车"+(i+1);
+					this.oBox.appendChild(aDiv);
+				}
+				
+				document.body.appendChild(this.oBox)
+				
+				this.aInput = this.oBox.getElementsByTagName('input');
+				this.aDiv = this.oBox.getElementsByTagName('div');
+				
+//				console.log(this.aInput)
+				this.aDiv[0].className = "current";
+
+//				console.log(this.aDiv.length);
+				
+			}
+			
+			Tab.prototype.init = function(){
+				
+				var _this = this
+				
+//				点击切换
+//				for(var i=0; i<this.aInput.length; i++){
+//					
+//					this.aInput[i].index = i;
+//					this.aInput[i].onclick = function(){
+//						
+//						_this.t1(this);
+//					}
+//				}
+
+//				自动切换
+				var i = 0;
+				setInterval(function(){
+					
+					_this.t2(i)
+					i++
+					if(i>=3){
+						i=0;
+					}
+				},1000)
+			}
+			
+			Tab.prototype.t1 = function(obj){
+				
+				for(var j=0; j<this.aInput.length; j++){
+					
+					this.aInput[j].className = "";
+					this.aDiv[j].style.display = "none";
+				}
+				
+				obj.className = "current";
+				this.aDiv[obj.index].style.display = "block";
+			}
+
+			Tab.prototype.t2 = function(i){
+				
+				for(var j=0; j<this.aInput.length; j++){
+					
+					this.aInput[j].className = "";
+					this.aDiv[j].style.display = "none";
+				}
+				
+				this.aInput[i].className = "current";
+				this.aDiv[i].style.display = "block";
+			}
+			
+			var tab1 = new Tab();
+			tab1.init()
+			
+			var tab2 = new Tab()
+			tab2.init();
+			
+			var tab3 = new Tab();
+			tab3.init();
+		}
+		</script>
+		
+	</body>
+</html>

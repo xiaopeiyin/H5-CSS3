@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 190px;
+				height: 190px;
+				background: url(img/jian.png) no-repeat;
+				background-position: 0 0;
+				position: absolute;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<script>
+			
+			function Fly(left,top,time){
+				
+				this.left = left;
+				this.top = top;
+				this.time = time;
+				this.speed = 10;
+				this.i = 0;
+				this.timer = null;
+				this.dom = null;
+			}
+			
+			Fly.prototype.init = function(){
+				
+				this.dom = document.createElement("div");
+				this.dom.style.left = this.left + 'px';
+				this.dom.style.top = this.top + 'px';
+				document.body.appendChild(this.dom);
+				
+				this.move();
+			}
+			
+			Fly.prototype.move = function(){
+				
+				var _this = this;
+				this.timer = setInterval(function(){
+					
+					var x = _this.i%5;
+					var y = parseInt(_this.i/5);
+					
+					_this.dom.style.left = _this.left + 'px';
+					_this.dom.style.backgroundPosition = -x*190 +'px'+ " " + -y*190 +'px';
+					
+					_this.left += 10;
+					_this.i++;
+					
+					if(_this.i > 50){
+						
+						_this.i = 0;
+					}
+					if(_this.left > 1500){
+						
+						clearInterval(_this.timer);
+						document.body.removeChild(_this.dom);
+					}
+				},_this.time)
+			}
+			
+			setInterval(function(){
+				
+				var fly1 = new Fly(Math.random()*100,Math.random()*400,Math.random()*200)
+				fly1.init()
+			},1000)
+		</script>
+	</body>
+</html>

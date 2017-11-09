@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,div,ul,li,a{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			body{
+				height: 6000px;
+			}
+			.leftNav{
+				width: 40px;
+				height: 328px;
+				border: 1px solid black;
+				position: fixed;
+				left: 10px;
+				top: 50px;
+				opacity: 0;
+				filter: alpha(oapcity:0);
+			}
+			.leftNav ul li{
+				width: 40px;
+				height: 40px;
+				background: skyblue;
+				text-align: center;
+				border-bottom: 1px solid #fff;
+				line-height: 40px;
+				font-size: 24px;
+			}
+			.leftNav ul li.current{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="leftNav" id="leftNav">
+			<ul>
+				<li><a href="javascript:;">1</a></li>
+				<li><a href="javascript:;">2</a></li>
+				<li><a href="javascript:;">3</a></li>
+				<li><a href="javascript:;">4</a></li>
+				<li><a href="javascript:;">5</a></li>
+				<li><a href="javascript:;">6</a></li>
+				<li><a href="javascript:;">7</a></li>
+				<li><a href="javascript:;">8</a></li>
+			</ul>
+			
+		</div>
+		
+		<script type="text/javascript" src="js/animate-2.0.1.js" ></script>
+		<script>
+			
+			var oLeftNave = document.getElementById("leftNav");
+			var aLi = oLeftNave.getElementsByTagName('li');
+			
+			document.onscroll = function(){
+				
+				var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+				
+				if(oLeftNave.isanimated){
+						
+						return ;
+				}
+				
+				if(scrollTop > 1000){
+					
+					animate(oLeftNave,{"opacity" : 1},500);
+					
+				//	aLi[0].className = "current";
+				} else {
+					animate(oLeftNave,{"opacity" : 0},500);
+				}
+				
+				
+			
+				if(scrollTop >=4500){
+					
+					remove()
+					aLi[7].className = "current"
+				}
+				else if(scrollTop >=4000){
+					
+					remove()
+					aLi[6].className = "current";
+				}
+				else if(scrollTop >=3500){
+					
+					remove()
+					aLi[5].className = "current";
+				}
+				else if(scrollTop >=3000){
+					
+					remove()
+					aLi[4].className = "current"
+				}
+				else if(scrollTop >=2500){
+					
+					remove()
+					aLi[3].className = "current";
+				}
+				else if(scrollTop >=2000){
+					
+					remove()
+					aLi[2].className = "current";
+				}
+				else if(scrollTop >=1500){
+					
+					remove()
+					aLi[1].className = "current";
+				}
+				else{
+					remove()
+					aLi[0].className = "current";
+					
+				}
+			}
+			
+			function remove(){
+				
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].className="";
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 500px;
+				margin: 100px auto;
+				font-size: 50px;
+			}
+			img{
+				/*float: left;*/
+				width: 50px;
+			}	
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<img src="img/0.png" alt="" />
+			<img src="img/1.png" alt="" />
+			:
+			<img src="img/2.png" alt="" />
+			<img src="img/3.png" alt="" />
+			:
+			<img src="img/4.png" alt="" />
+			<img src="img/5.png" alt="" />
+		</div>
+		
+		<script>
+		
+			var oBox = document.getElementById("box");
+			var oImg = oBox.getElementsByTagName("img");
+			
+			time();
+			setInterval(function(){
+				
+				time();
+			},1000)
+			
+			function time(){
+				
+				var oDate = new Date()
+				var h = oDate.getHours();
+				var m = oDate.getMinutes();
+				var s = oDate.getSeconds();			
+				var str = trans(h) + trans(m) + trans(s);
+				
+				for(var i=0; i<oImg.length; i++){
+					oImg[i].src = "img/"+ str[i] +".png"
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			function trans(num){
+				
+				if(num<10){
+					return "0" + num;
+				}
+				else{
+					return "" + num;
+				}
+			}
+			
+			console.log(typeof trans(10))
+		</script>
+	</body>
+</html>

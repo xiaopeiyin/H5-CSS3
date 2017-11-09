@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 500px;
+				margin: 20px auto;
+				font-size: 50px;
+			}
+			img{
+				/*float: left;*/
+				width: 50px;
+			}	
+			h2{
+				width: 500px;
+				margin: 50px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>离双11秒杀价还有：</h2>
+		<div class="box" id="box">
+			<img src="img/0.png" alt="" />
+			<img src="img/1.png" alt="" />
+			:
+			<img src="img/2.png" alt="" />
+			<img src="img/3.png" alt="" />
+			:
+			<img src="img/4.png" alt="" />
+			<img src="img/5.png" alt="" />
+		</div>
+	</body>
+	
+	<script>
+		
+		var oBox = document.getElementById("box");
+		var aImg = oBox.getElementsByTagName('img');
+		
+		djs();
+		setInterval(function(){
+			
+			djs()
+		},1000)
+		
+		function djs(){
+			
+			var oDate1 = new Date();
+			var oDate2 = new Date(2017,10,11,0,0);
+		
+			var time1 = oDate1.getTime();
+			var time2 = oDate2.getTime()
+			var t1 = time2 - time1;
+			
+			var h = parseInt(t1/1000/60/60);
+			var t2 = t1 - h*60*60*1000
+			var m = parseInt(t2/1000/60);
+			var t3 = t2 - m*60*1000;
+			var s = parseInt(t3/1000)
+			var str = trans(h) + trans(m) + trans(s)
+			
+			for(var i=0; i<aImg.length; i++){
+				
+				aImg[i].src = "img/"+ str[i] +".png"
+			}
+		}
+		
+		function trans(num){
+				
+				if(num<10){
+					return "0" + num;
+				}
+				else{
+					return "" + num;
+				}
+			}
+	</script>
+</html>	
+	

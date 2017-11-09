@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 79px;
+				height: 108px;
+				background: url(img/girl.png) no-repeat;
+				background-position: 0 -218px;
+				position: absolute;
+				top: 100px;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+	<!--	<div></div>-->
+		
+		<script>
+			
+			function Gril(top,left,speed){
+				
+				this.top = top;
+				this.left = left;
+				this.speed = speed;
+				this.timer = null;
+				this.dom = null;
+				this.buzi = 0;
+				
+			}
+			
+			Gril.prototype.init = function(){
+				
+
+				this.dom = document.createElement("div");
+				this.dom.style.left = this.left + 'px';
+				this.dom.style.top = this.top + 'px';
+				
+				document.body.appendChild(this.dom);
+				
+				
+				this.walk();
+				
+			}
+			
+			Gril.prototype.walk = function(){
+				
+				console.log("开始走了")
+				
+				var _this = this				
+				this.timer = setInterval(function(){
+					
+					_this.buzi++;
+					_this.left += 10;
+					
+					if(_this.buzi>7){
+						_this.buzi = 0;
+					}
+					if(_this.left>1000){
+						_this.die()
+					}
+					_this.dom.style.left = _this.left + 'px';
+					_this.dom.style.backgroundPosition = -79*_this.buzi +'px -218px';
+				},_this.speed)
+				
+				
+			}
+			
+			Gril.prototype.die = function(){
+				
+				clearInterval(this.timer);
+				document.body.removeChild(this.dom)
+			}
+			
+			setInterval(function(){
+				
+				var gril1 = new Gril(Math.random()*300,200*Math.random(),200*Math.random());
+				gril1.init()
+			},1000)
+				
+				
+			
+//			var gril1 = new Gril(300,100,50);
+//			gril1.init()
+		</script>
+	</body>
+</html>
