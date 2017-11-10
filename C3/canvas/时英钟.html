@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="600px" height="600px"></canvas>
+		
+		
+		<script>
+			
+			var canv = document.getElementById("canvas");
+			
+			var ctx = canv.getContext('2d');
+			
+		function time(){	
+			var date = new Date()
+			var h = date.getHours();
+			var m = date.getMinutes();
+			var s = date.getSeconds();
+			h = h + h/60;
+			
+			ctx.clearRect(0,0,600,600)
+			ctx.beginPath()
+			
+			ctx.lineWidth = 5;
+			ctx.arc(300,300,200,0,360,false)
+			ctx.stroke()
+			ctx.closePath()
+			
+			
+//			画时钟刻度
+			for(var i=0; i<12; i++){
+				
+				var a =12
+				ctx.save();
+				
+				ctx.beginPath();
+				ctx.translate(300,300);
+				ctx.lineWidth = 7;
+				
+				ctx.rotate(i*(Math.PI/6));
+				
+//				ctx.font = "20px 微软雅黑";
+//				ctx.textAlign = "center"
+//				ctx.fillText(12-i,0,-150)
+				ctx.moveTo(0,-190);
+				ctx.lineTo(0,-170);
+				ctx.stroke();
+				
+				ctx.closePath();
+				
+				ctx.restore();
+			}
+			
+//			画秒钟刻度
+			for(var i=0; i<60; i++){
+				
+				ctx.save();
+				
+				ctx.beginPath();
+				ctx.translate(300,300);
+				ctx.lineWidth = 5;
+				ctx.rotate(i*(Math.PI/30));
+				ctx.moveTo(0,-190);
+				ctx.lineTo(0,-180);
+				ctx.stroke();
+				ctx.closePath();
+				
+				ctx.restore();
+			}
+			
+//			画时针
+			
+				ctx.save();
+				
+				ctx.beginPath();
+				ctx.translate(300,300);
+				ctx.lineWidth = 7;
+				ctx.rotate(h*(Math.PI/6));
+				ctx.moveTo(0,-120);
+				ctx.lineTo(0,10);
+				ctx.stroke();
+				ctx.closePath();
+				
+				ctx.restore();
+				
+//			画分针
+				ctx.save();
+				
+				ctx.beginPath();
+				ctx.translate(300,300);
+				ctx.lineWidth = 5;
+				ctx.rotate(m*(Math.PI/30));
+				ctx.moveTo(0,-150);
+				ctx.lineTo(0,15);
+				ctx.stroke();
+				ctx.closePath();
+				
+				ctx.restore();
+				
+	//			画秒针
+				ctx.save();
+				
+				ctx.beginPath();
+				ctx.translate(300,300);
+				ctx.lineWidth = 2;
+				ctx.strokeStyle = "#8A2BE2"
+				ctx.rotate(s*(Math.PI/30));
+				ctx.moveTo(0,-180);
+				ctx.lineTo(0,20);
+				ctx.stroke();
+				ctx.closePath();
+				
+				ctx.restore();
+				
+	//			画电子钟
+//				ctx.save();
+//				
+//				ctx.beginPath();
+//				ctx.translate(300,300);
+//				ctx.lineWidth = 2;
+//				ctx.strokeStyle = "#8A2BE2"
+//				ctx.rotate(s*(Math.PI/30));
+//				ctx.moveTo(0,-180);
+//				ctx.lineTo(0,20);
+//				ctx.stroke();
+//				ctx.closePath();
+//				
+//				ctx.restore();
+		}
+		
+		time();
+		setInterval(function(){
+			
+			time();
+		},1000)
+		</script>
+	</body>
+</html>

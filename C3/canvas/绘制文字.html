@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: gray;
+			}
+			#canvas{
+				background: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="600px" height="600px"></canvas>
+		
+		<script>
+			
+			var cav = document.getElementById("canvas");
+			var ctx = cav.getContext('2d');
+			
+			ctx.font = "50px 微软雅黑";
+			ctx.textAlign = "start";
+			ctx.textBaseline = "bottom"
+			ctx.fillText("我是中国人",100,100)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: skyblue;
+			}
+			/*#canvas{
+				background: #FFFFFF;
+			}*/
+		</style>
+	</head>
+	<body>
+		
+			<canvas id="canvas" width="800px" height="800px"></canvas>
+
+	
+	<script>
+		
+		var canv = document.getElementById("canvas");
+		var ctx = canv.getContext('2d');
+		
+		ctx.beginPath()
+		
+		ctx.fillStyle = "#fff"
+		ctx.arc(300,300,200,-0.5*Math.PI,0.5*Math.PI,false)
+		ctx.fill()
+		
+		ctx.closePath()
+		
+		ctx.beginPath()
+		
+		ctx.fillStyle = "#000"
+		ctx.arc(300,300,200,-0.5*Math.PI,0.5*Math.PI,true)
+		ctx.fill()
+		
+		ctx.closePath()
+		
+		ctx.beginPath()
+		
+		ctx.fillStyle = "#fff"
+		ctx.arc(300,200,100,0*Math.PI,2*Math.PI,false)
+		ctx.fill()
+		
+		ctx.closePath()
+		
+		ctx.beginPath()
+		
+		ctx.fillStyle = "#000"
+		ctx.arc(300,400,100,0*Math.PI,2*Math.PI,false)
+		ctx.fill()
+		
+		ctx.closePath()
+		
+		ctx.beginPath()
+		
+		ctx.fillStyle = "#000"
+		ctx.arc(300,200,30,0*Math.PI,2*Math.PI,false)
+		ctx.fill()
+		
+		ctx.closePath()
+		
+		ctx.beginPath()
+		
+		ctx.fillStyle = "#fff"
+		ctx.arc(300,400,30,0*Math.PI,2*Math.PI,false)
+		ctx.fill()
+		
+		ctx.closePath()
+		
+		ctx.font = "30px 微软雅黑"
+		ctx.fillText("太极生两仪 两仪生四象 四象生八卦",100,600)
+		
+	</script>
+	</body>
+</html>

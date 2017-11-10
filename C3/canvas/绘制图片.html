@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				background: gray;
+			}
+			#canvas{
+				background: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="600px" height="600px"></canvas>
+	</body>
+	
+	<script>
+		
+		var canv = document.getElementById("canvas");
+		var ctx = canv.getContext('2d');
+		
+		var image = new Image();
+		
+		image.src = "../img/1.jpg";
+		
+		image.onload = function(){
+			
+			ctx.drawImage(image,100,100,150,150,200,200,150,150)
+		}
+	</script>
+</html>

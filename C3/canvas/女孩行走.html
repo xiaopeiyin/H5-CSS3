@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<canvas id="canv" width="800" height="800"></canvas>
+		
+		<script>
+			
+			var canv = document.getElementById("canv");
+			var ctx = canv.getContext("2d");
+			
+	 		var image = new Image();
+	 		image.src = "../img/lc.png";
+	 		
+	 		image.onload = function(){
+	 			
+	 			
+	 			function walk(h,t){
+	 				
+	 		//		console.log(h,t)
+	 				var i = 0;
+		 			var oLeft = 100;
+		 			var timer = setInterval(function(){
+		 				
+		 				ctx.clearRect(0,0,canv.width,canv.height)
+		 				oLeft += 3;
+		 				ctx.drawImage(image,79*i,108,79,108,oLeft,h,79,108);
+		 				i++;
+		 				if(i>3){
+		 					i=0
+		 				}
+		 				if(oLeft>canv.width){
+		 					clearInterval(timer)
+		 				}
+		 			},t)
+		 			
+		 			
+	 			}
+	 			
+	 			walk(600,300)
+		 			
+	 			setInterval(function(){
+	 				
+	 				walk(600*Math.random(),300*Math.random())
+	 			},2000)	
+	 				
+	 				
+	 			
+	 		}
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			canvas{
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="800px" height="600px"></canvas>
+		
+		<script>
+			
+			var canv = document.getElementById("canvas");
+			var option = {
+				row:9,
+				height:600,
+				width:800,
+				coluWidth:100,
+				arr:[300,150,400,550,258,500]
+			}
+			
+			function DrawTable(canv,option){
+				
+				this.row = option.row;
+				this.ctx = canv.getContext('2d')
+				this.height = option.height;
+				this.width = option.width;
+				this.rowWidth = this.height/this.row;
+				this.arr = option.arr;
+				// 柱子宽度
+				this.coluWidth = option.coluWidth;
+				// 间距宽度
+				this.intWidth = (this.width - this.arr.length*this.coluWidth)/this.arr.length;
+				
+				
+				this.drawTabel();
+				this.drawColumn();
+			}
+			
+			DrawTable.prototype.drawLine = function(begin,end){
+				
+				this.ctx.beginPath()
+				this.ctx.lineWidth = 2;
+				this.ctx.strokeStyle = "black";
+				this.ctx.moveTo(begin.x,begin.y);
+				this.ctx.lineTo(end.x,end.y)
+				this.ctx.stroke()
+				 
+				
+				this.ctx.closePath()
+			}
+			
+			DrawTable.prototype.drawTabel = function(){
+				
+				this.drawLine({x:2,y:0},{x:2,y:this.height});
+				this.drawLine({x:this.width,y:0},{x:this.width,y:this.height})
+				
+				for(var i=0; i<=this.row; i++){
+					
+					this.drawLine({x:0,y:this.rowWidth*i},{x:this.width,y:this.rowWidth*i})
+				}
+			}
+			
+			DrawTable.prototype.drawColumn = function(){
+				
+				for(var i=0; i<this.arr.length; i++){
+					
+					this.ctx.fillStyle = "skyblue";
+					this.ctx.beginPath();
+					this.ctx.fillRect(this.intWidth/2+i*(this.coluWidth+this.intWidth),this.height-this.arr[i],this.coluWidth,this.arr[i])
+					this.ctx.fill();
+					this.ctx.closePath()
+				}
+			}
+			
+			new DrawTable(canv,option);
+		</script>
+	</body>
+</html>

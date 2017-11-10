@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+	<canvas id="canvas" width="800px" height="800px"></canvas>
+
+	
+	<script>
+		
+		var canv = document.getElementById("canvas");
+		var ctx = canv.getContext('2d');
+		
+		ctx.strokeStyle = "deepskyblue";
+		
+		ctx.moveTo(300,300)
+		ctx.fillStyle = "#9ACD32"
+		
+		
+			
+		
+		
+		var i = 0;
+		var timer = setInterval(function(){
+			
+			draw(i)
+			
+			
+			
+			if(i>0.99){
+				//draw(1)
+				clearInterval(timer)
+			}
+			
+			i += 0.01;
+		},100)
+
+		
+//		draw(0.2)
+		
+		function draw(i){
+			
+			ctx.beginPath()
+			
+			ctx.moveTo(300,300)
+			ctx.arc(300,300,150,-0.5*Math.PI,i*(2*Math.PI) - 0.5*Math.PI,false)
+			
+			
+			ctx.stroke()	
+			ctx.fill()
+			ctx.closePath()
+			
+			
+		}
+		
+		
+	</script>
+	</body>
+</html>
